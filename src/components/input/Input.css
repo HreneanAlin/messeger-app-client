@@ -1,11 +1,8 @@
-form {
-    display: flex;
-    border-top: 2px solid #D3D3D3;
-}
+
 
 .form {
     display: flex;
-    border-top: 2px solid #D3D3D3;
+    border-top: 2px solid var(--clr-third);
 }
 
 .input {
@@ -21,10 +18,10 @@ input:focus, textarea:focus, select:focus{
 }
 
 .sendButton {
-    color: #fff !important;
+    color: var(--clr-dark);
     text-transform: uppercase;
     text-decoration: none;
-    background: #2979FF;
+    background: var(--clr-main);
     padding: 20px;
     display: inline-block;
     border: none;

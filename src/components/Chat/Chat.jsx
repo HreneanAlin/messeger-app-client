@@ -5,6 +5,7 @@ import InfoBar from "../infoBar/InfoBar";
 import Input from "../input/Input";
 import Messages from "../messages/Messages"
 import "./Chat.css"
+import UsersBox from "../usersBox/UsersBox";
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config({path:'.env'})
 
@@ -17,6 +18,7 @@ const Chat = (props) => {
     const [room, setRoom] = useState('')
     const [messages, setMessages] = useState([])
     const [message, setMessage] = useState('')
+    const [users, setUsers] = useState([])
     const ENDPOINT = process.env.REACT_APP_SERVER_URL  //'https://ha-messanger-app.herokuapp.com/'
 
     useEffect(() => {
@@ -41,6 +43,9 @@ const Chat = (props) => {
     useEffect(() => {
         socket.on("message", (message) => {
             setMessages(messages => [...messages, message])
+        })
+        socket.on("roomData",({users}) => {
+            setUsers(users)
         })
     }, [])///chaged
 
@@ -67,6 +72,7 @@ const Chat = (props) => {
                     sendMessage={sendMessage}
                 />
             </div>
+            <UsersBox  users ={users}/>
         </div>
     );
 };
