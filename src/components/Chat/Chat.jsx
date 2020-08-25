@@ -7,6 +7,7 @@ import Messages from "../messages/Messages"
 import "./Chat.css"
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config({path:'.env'})
+
 }
 
 let socket;
