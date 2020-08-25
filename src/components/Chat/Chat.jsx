@@ -5,6 +5,9 @@ import InfoBar from "../infoBar/InfoBar";
 import Input from "../input/Input";
 import Messages from "../messages/Messages"
 import "./Chat.css"
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config({path:'.env'})
+}
 
 let socket;
 
@@ -13,7 +16,7 @@ const Chat = (props) => {
     const [room, setRoom] = useState('')
     const [messages, setMessages] = useState([])
     const [message, setMessage] = useState('')
-    const ENDPOINT = 'https://ha-messanger-app.herokuapp.com/'
+    const ENDPOINT = process.env.REACT_APP_SERVER_URL  //'https://ha-messanger-app.herokuapp.com/'
 
     useEffect(() => {
         const {name, room} = queryString.parse(props.location.search)
