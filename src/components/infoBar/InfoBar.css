@@ -1,5 +1,5 @@
 .infoBar {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: space-between;
     background: var(--clr-third);
@@ -16,6 +16,15 @@
     color: var(--clr-light);
 }
 
+.show-button{
+    margin-left: 2rem;
+    cursor:pointer;
+    border: none;
+    background-color: var(--clr-main);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+}
+
 .rightInnerContainer {
     display: flex;
     flex: 0.5;
@@ -25,4 +34,10 @@
 
 .onlineIcon {
     margin-right: 5%;
+}
+
+@media  (min-width: 480px) {
+    .show-button{
+        display: none;
+    }
 }

@@ -16,6 +16,7 @@ let socket;
 const Chat = (props) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('')
+    const [showUsers, setShowUsers] = useState(false)
     const [messages, setMessages] = useState([])
     const [message, setMessage] = useState('')
     const [users, setUsers] = useState([])
@@ -64,7 +65,7 @@ const Chat = (props) => {
     return (
         <div className='outerContainer'>
             <div className='container'>
-                <InfoBar room={room}/>
+                <InfoBar room={room} showUsers={showUsers} setShowUsers={setShowUsers}/>
                 <Messages messages={messages} name={name}/>
                 <Input
                     message={message}
@@ -72,7 +73,7 @@ const Chat = (props) => {
                     sendMessage={sendMessage}
                 />
             </div>
-            <UsersBox  users ={users}/>
+            <UsersBox  users ={users} showUsers = {showUsers}/>
         </div>
     );
 };

@@ -20,12 +20,19 @@
     background: var(--clr-secundary);
     padding: 1rem;
 }
-@media (min-width: 320px) and (max-width: 480px) {
+@media  (max-width: 480px) {
 
 
     .users-container {
+        display: none;
 
+    }
+
+    .show {
+        display: initial;
         height: 100%;
+        position: fixed;
+        right: 0;
     }
 }
 
