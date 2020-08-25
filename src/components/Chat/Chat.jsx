@@ -52,7 +52,7 @@ const Chat = (props) => {
 
     const sendMessage = (e) => {
         e.preventDefault();
-
+        if(message.replace(/\s/g,'').length === 0) return
         if (message) {
             socket.emit('sendMessage', message, () => {
                 setMessage('')
