@@ -13,9 +13,9 @@ if(process.env.NODE_ENV !== 'production'){
 
 let socket;
 
-const Chat = (props) => {
+const Chat = ({firstName, lastName, userName, guest, room , setRoom }) => {
     const [name, setName] = useState('');
-    const [room, setRoom] = useState('')
+
     const [showUsers, setShowUsers] = useState(false)
     const [messages, setMessages] = useState([])
     const [message, setMessage] = useState('')
@@ -23,7 +23,9 @@ const Chat = (props) => {
     const ENDPOINT = process.env.REACT_APP_SERVER_URL  //'https://ha-messanger-app.herokuapp.com/'
 
     useEffect(() => {
-        const {name, room} = queryString.parse(props.location.search)
+
+
+        const {name, room} = queryString.parse(window.location.search)
 
         socket = io(ENDPOINT);
         setName(name)
@@ -39,7 +41,7 @@ const Chat = (props) => {
 
         }
 
-    }, [ENDPOINT, props.location.search])
+    }, [ENDPOINT, window.location.search])
 
     useEffect(() => {
         socket.on("message", (message) => {
