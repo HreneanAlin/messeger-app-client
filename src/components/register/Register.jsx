@@ -44,10 +44,10 @@ const Register = () => {
             try {
                 const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, params)
                 console.log("The response is", res)
-                if (res.status === 200) {
-                    setMessage('Request succesful')
+                console.log(res)
+                    setMessage(res.data)
                     setReqDone(true)
-                }
+
             } catch (e) {
                 if(e.response) setMessage(e.response.data)
                 else setMessage("Connection lost to DB beacause it sucks")
