@@ -25,10 +25,12 @@ html, body {
     width: 20%;
 }
 
+
 .joinInput {
     border-radius: 0;
     padding: 15px 20px;
     width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 .heading {
@@ -38,21 +40,35 @@ html, body {
     border-bottom: 2px solid var(--clr-light);
 }
 
-.button {
-    color: var(--clr-dark) !important;
+.button-chat,.register-l,.login-l,.log-out-btn {
+    cursor:pointer;
+    margin-top: 1em;
     text-transform: uppercase;
     text-decoration: none;
-    background: var(--clr-main);
-    padding: 20px;
-    border-radius: 5px;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
     display: inline-block;
     border: none;
     width: 100%;
 }
 
-.mt-20 {
-    margin-top: 20px;
+.button-chat{
+    background: var(--clr-main);
+    color: var(--clr-dark) !important;
 }
+
+.register-l{
+    background: var(--clr-secundary);
+    color: var(--clr-third) ;
+}
+
+.login-l, .log-out-btn {
+    background: var(--clr-third);
+    color: var(--clr-secundary) ;
+}
+
+
 
 @media (min-width: 320px) and (max-width: 480px) {
     .joinOuterContainer {

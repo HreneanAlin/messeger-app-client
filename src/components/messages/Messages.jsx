@@ -7,11 +7,11 @@ import Message from "../message/Message";
 
 import './Messages.css';
 
-const Messages = ({ messages, name }) => {
+const Messages = ({ messages, name, generatedId }) => {
 
    return(
     <ScrollToBottom className="messages">
-        {messages.map((message, i) => <div key={i}><Message message={message} name={name}/></div>)}
+        {messages.map((message, i) => <div key={i}><Message message={message} name={name} generatedId = {generatedId}/></div>)}
     </ScrollToBottom>
 )
 }

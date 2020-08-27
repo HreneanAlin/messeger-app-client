@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    box-sizing: border-box;
+}
+
 :root{
     --clr-main: #587B7F;
     --clr-dark : #1E2019;

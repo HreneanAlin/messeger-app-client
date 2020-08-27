@@ -7,10 +7,12 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path: '.env'})
 
 }
-const Login = ({setFirstName, setLastName, setUserName, firstName, lastName, userName}) => {
+const Login = ({logOut}) => {
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('getUser')));
     const [userNameTry, setUserNameTry] = useState("")
     const [password, setPassword] = useState("")
-    const [loged, setLoged] = useState(false)
+    const [notLoged, setNotLoged] = useState(!user)
+    const [message,setMessage] = useState("")
     const sendData = (e) => {
         e.preventDefault()
         if (!userNameTry || !password) return
@@ -22,33 +24,47 @@ const Login = ({setFirstName, setLastName, setUserName, firstName, lastName, use
 
 
             try {
-                const {data} = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, params)
-                console.log(data)
-                setFirstName(data.firstName)
-                setLastName(data.lastName)
-                setUserName(data.userName)
-                setLoged(true)
+                const {data,status} = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, params)
+                const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, params)
+
+                if(data.firstName){
+                    localStorage.setItem('getUser', JSON.stringify(data))
+                    setUser(JSON.parse(localStorage.getItem('getUser')))
+                    setNotLoged(!data.firstName)
+                }else {
+                    setMessage('This site recieve' +
+                        '  information from a free online mySql Db that right know is not working, Please try again latter')
+                    console.log("The result ",res)
+                }
+
+                console.log('User from storage',user)
 
             } catch (e) {
-                console.log(e)
+                if(e.response) {
+                    console.log("this is the e", e.response)
+                    setMessage(e.response.data)
+                }else setMessage('This site recieve' +
+                    '  information from a free online mySql Db that right know is not working, Please try again latter')
+
 
             }
         }
         send()
     }
 
-    const logOut = () =>{
-        setFirstName('')
-        setLastName('')
-        setUserName('')
-        setLoged(false)
-    }
+const logOutFromPage = ()=>{
+        logOut()
+        setNotLoged(true)
+}
 
     return (
-        <div>
-            {!loged ?
-                <form>
-                    <div>
+        <div className="login-container">
+            {notLoged ?
+                <div >
+                    <h1>Log In</h1>
+                <form className='form-container'>
+                    <div >
+                        <p>{message}</p>
                         <input onChange={e => setUserNameTry(e.target.value)} type="text" placeholder="username"/>
                     </div>
                     <div>
@@ -56,11 +72,16 @@ const Login = ({setFirstName, setLastName, setUserName, firstName, lastName, use
                     </div>
                     <div>
                         <button onClick={(e) => sendData(e)}>Log In</button>
+                        <p>Don't have an account? <Link to={"/register"}>Create one!</Link></p>
                     </div>
-                </form> : <>
-                    <h1>wellcome {firstName} {lastName} with the userName{userName}</h1>
-                        <Link to={"/"}>Join a Room</Link>
-                        <button onClick={() => logOut()}>Log Out</button>
+                </form> </div> : <>
+                    <h1>Wellcome {user.userName}</h1>
+                    <div>
+                        <Link to={"/"}>
+                            <span className="button-chat">Join a Room</span>
+                        </Link>
+                        <button className="log-out-btn" onClick={() => logOutFromPage()}>Log Out</button>
+                    </div>
                    </>}
 
         </div>

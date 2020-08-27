@@ -33,6 +33,9 @@
     color: #828282;
     letter-spacing: 0.3px;
 }
+.sentText img{
+    transform: translateY(0%);
+}
 
 .pl-10 {
     padding-left: 10px;
@@ -70,5 +73,5 @@
     background: var(--clr-third);
 }
 .background-others p {
-    color: var(--clr-light-)
+    color: var(--clr-light)
 }

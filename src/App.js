@@ -8,11 +8,15 @@ import Login from "./components/login/Login";
 
 
 const App = () => {
-    const [firstName,setFirstName] = useState("")
-    const [lastName,setLastName] = useState("")
-    const [userName,setUserName] = useState("")
+
     const [guest,setGuest] = useState("")
     const [room,setRoom] = useState('')
+
+    const logOut = () =>{
+
+
+        localStorage.removeItem('getUser')
+    }
     return (
         <Router>
             <Route path='/' exact >
@@ -20,26 +24,19 @@ const App = () => {
                       setGuest={setGuest}
                       room={room}
                       setRoom = {setRoom}
-                       userName ={userName}/>
+                      logOut = {logOut}/>
             </Route>
             <Route path='/register' >
                 <Register/>
             </Route>
             <Route path='/chat' >
-                <Chat firstName = {firstName}
-                      lastName = {lastName}
-                      userName={userName}
+                <Chat
                       guest ={guest}
                       room = {room}
                       setRoom = {setRoom}/>
             </Route>
             <Route path='/login' >
-                <Login firstName = {firstName}
-                       lastName = {lastName}
-                       userName={userName}
-                       setFirstName={setFirstName}
-                       setLastName = {setLastName}
-                       setUserName={setUserName} />
+                <Login logOut ={logOut} />
             </Route>
 
         </Router>
