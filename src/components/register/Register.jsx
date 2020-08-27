@@ -42,7 +42,7 @@ const Register = () => {
             }
 
             try {
-                const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, params)
+                const res = await axios.post(`${process.env.REACT_APP_SERVER_HOST}/register`, params)
                 console.log("The response is", res)
                 console.log(res)
                     setMessage(res.data)

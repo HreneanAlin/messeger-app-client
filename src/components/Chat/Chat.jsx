@@ -23,7 +23,7 @@ const Chat = ({room, setRoom}) => {
     const [message, setMessage] = useState('')
     const [users, setUsers] = useState([])
     const [generatedId, setGeneratedId] = useState('')
-    const ENDPOINT = process.env.REACT_APP_SERVER_URL  //'https://ha-messanger-app.herokuapp.com/'
+    const ENDPOINT = process.env.REACT_APP_SERVER_HOST //'https://ha-messanger-app.herokuapp.com/'
     const[loading, setLoading] = useState(true)
 
 

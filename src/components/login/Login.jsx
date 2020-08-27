@@ -24,8 +24,8 @@ const Login = ({logOut}) => {
 
 
             try {
-                const {data,status} = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, params)
-                const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, params)
+                const {data,status} = await axios.post(`${process.env.REACT_APP_SERVER_HOST}/login`, params)
+
 
                 if(data.firstName){
                     localStorage.setItem('getUser', JSON.stringify(data))
@@ -34,7 +34,7 @@ const Login = ({logOut}) => {
                 }else {
                     setMessage('This site recieve' +
                         '  information from a free online mySql Db that right know is not working, Please try again latter')
-                    console.log("The result ",res)
+
                 }
 
                 console.log('User from storage',user)
