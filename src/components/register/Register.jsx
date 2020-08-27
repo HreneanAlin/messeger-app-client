@@ -43,6 +43,7 @@ const Register = () => {
 
             try {
                 const res = await axios.post(`${process.env.REACT_APP_SERVER_HOST}/register`, params)
+                //const res = await axios.post(`https://ha-messanger-app.herokuapp.com/register`, params)
                 console.log("The response is", res)
                 console.log(res)
                     setMessage(res.data)

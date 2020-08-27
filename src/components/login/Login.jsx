@@ -25,6 +25,7 @@ const Login = ({logOut}) => {
 
             try {
                 const {data,status} = await axios.post(`${process.env.REACT_APP_SERVER_HOST}/login`, params)
+               // const {data,status} = await axios.post(`https://ha-messanger-app.herokuapp.com/login`, params)
 
 
                 if(data.firstName){
