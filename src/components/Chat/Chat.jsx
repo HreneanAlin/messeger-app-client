@@ -37,6 +37,7 @@ const Chat = ({room, setRoom}) => {
 
         if (user) {
             const {room, gerid} = queryString.parse(window.location.search)
+            console.log('the roomn is',room)
             setName(`${user.firstName} ${user.lastName}`)
 
             setGeneratedId(gerid)

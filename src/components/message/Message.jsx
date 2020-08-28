@@ -8,7 +8,8 @@ const Message = ({message:{ user, text }, name,generatedId}) => {
 
     const trimmedName = name.trim().toLowerCase()
 
-    if(user.generatedId === generatedId ){
+
+    if(user.generatedId === generatedId && user.name !== 'admin'){
         isSendByCurrentUser = true
 
     }
@@ -17,7 +18,13 @@ const Message = ({message:{ user, text }, name,generatedId}) => {
       isSendByCurrentUser
         ?(
             <div className='messageContainer justifyEnd'>
-                <p className="sentText pr-10">{trimmedName}</p>
+                <p className="sentText pr-10">{user.verified ?
+                    <>
+
+                        <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                        {user.name}
+                    </>
+                    : user.name}</p>
 
                <div className="messageBox background-current-user">
                    <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
