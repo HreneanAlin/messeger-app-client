@@ -48,7 +48,7 @@ if(notlogged) return (
 
                 <div><input placeholder="Room" className='joinInput' type="text"
                             onChange={(event => setRoom(event.target.value))}/></div>
-                <Link onClick={event => (!room) ? event.preventDefault() : null} to={`/chat?room=${room}`}>
+                <Link onClick={event => (!room) ? event.preventDefault() : null} to={`/chat?room=${room}&gerid=${uuidv4()}`}>
                     <button className="button-chat" type="submit">Enter Room</button>
                 </Link>
                 <button className="log-out-btn" onClick={()=> logOutFromPage()} >Log Out</button>

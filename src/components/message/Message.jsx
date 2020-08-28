@@ -8,7 +8,7 @@ const Message = ({message:{ user, text }, name,generatedId}) => {
 
     const trimmedName = name.trim().toLowerCase()
 
-    if(user.generatedId === generatedId){
+    if(user.generatedId === generatedId ){
         isSendByCurrentUser = true
 
     }
