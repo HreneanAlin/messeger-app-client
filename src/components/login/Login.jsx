@@ -76,7 +76,7 @@ const logOutFromPage = ()=>{
                         <p>Don't have an account? <Link to={"/register"}>Create one!</Link></p>
                     </div>
                 </form> </div> : <>
-                    <h1>Wellcome {user.userName}</h1>
+                    <h1>Welcome {user.userName}</h1>
                     <div>
                         <Link to={"/"}>
                             <span className="button-chat">Join a Room</span>

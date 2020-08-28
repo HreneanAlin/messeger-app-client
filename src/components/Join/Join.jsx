@@ -43,7 +43,7 @@ if(notlogged) return (
         <div  className='joinOuterContainer'>
             <div className='joinInnerContainer'>
                 <h1 className='heading'>
-                    Wellcome {user.firstName} {user.lastName}
+                    Welcome {user.firstName} {user.lastName}
                 </h1>
 
                 <div><input placeholder="Room" className='joinInput' type="text"
