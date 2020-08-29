@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "./Register.css"
 import axios from 'axios';
 import {Link, Redirect} from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path: '.env'})
@@ -38,7 +39,8 @@ const Register = () => {
                 lastName: lastName,
                 userName: userName,
                 email: email,
-                password: password
+                password: password,
+                verificationId: uuidv4()
             }
 
             try {
@@ -80,7 +82,12 @@ const Register = () => {
                            placeholder="Repeat password" required/>
                     <button type="submit" onClick={(e) => sendUserInfo(e)}>Register</button>
                     <p>Already have an account? <Link to={"/login"}>Login!</Link></p>
-                </form> : <Link to={"/login"}><span className='lgn-l' >Login</span></Link>}
+                </form> :
+                <>
+                    <p>An email was send to {email}. Please click the confirmation link in the mail for validation</p>
+                {/*<Link to={"/login"}><span className='lgn-l' >Login</span></Link>*/}
+                </>
+            }
         </div>
     );
 };

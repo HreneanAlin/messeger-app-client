@@ -5,6 +5,7 @@ import Chat from './components/Chat/Chat'
 import "./variables.css"
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
+import EmailConfirmation from "./components/emailConfirmation/EmailConfirmation";
 
 
 const App = () => {
@@ -37,6 +38,9 @@ const App = () => {
             </Route>
             <Route path='/login' >
                 <Login logOut ={logOut} />
+            </Route>
+            <Route path={'/email-confirmed/:verifiedId'}>
+                <EmailConfirmation/>
             </Route>
 
         </Router>
