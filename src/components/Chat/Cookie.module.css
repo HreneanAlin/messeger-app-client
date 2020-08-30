@@ -1,0 +1,13 @@
+@media (max-width: 480px) {
+
+    .cc-revoke{
+        /*left: 0!important;*/
+        /*transform: rotate(90deg)!important;*/
+        /*margin-left:-37px!important;*/
+        /*opacity: 0.5;*/
+
+        display: none!important;
+    }
+
+
+}

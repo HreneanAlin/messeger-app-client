@@ -20,10 +20,16 @@
     width: 35%;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+
+.cc-revoke{
+    margin:0;
+}
+
+@media (max-width: 480px) {
     .outerContainer {
         height: 100%;
     }
+
 
     .container {
         width: 100%;
@@ -35,4 +41,5 @@
     .container {
         width: 60%;
     }
+
 }

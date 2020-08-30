@@ -5,6 +5,7 @@ import InfoBar from "../infoBar/InfoBar";
 import Input from "../input/Input";
 import Messages from "../messages/Messages"
 import "./Chat.css"
+import './Cookie.module.css'
 import UsersBox from "../usersBox/UsersBox";
 
 
