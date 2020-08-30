@@ -19,14 +19,11 @@ const Register = () => {
     const [reqDone, setReqDone] = useState(false)
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('getUser')));
 
-    useEffect(() => {
-        if (user) {
 
-
-        }
-    }, [user])
     const sendUserInfo = (e) => {
-        e.preventDefault()
+
+       e.preventDefault()
+
         if (password !== passwordRep) {
             setMessage('The password fields to not match')
             return
@@ -66,7 +63,7 @@ const Register = () => {
             <h1>Register</h1>
             <p>{message}</p>
             {!reqDone  ?
-                <form className="form-container" action="#" method="post">
+                <form className="form-container" onSubmit={(e)=>sendUserInfo(e)} method="post"  >
                     <input onChange={e => setFirstName(e.target.value)} name="fname" type="text"
                            placeholder="first name" required/>
                     <input onChange={e => setLastName(e.target.value)} name="lname" type="text" placeholder="last name"
@@ -79,7 +76,8 @@ const Register = () => {
                            placeholder="password" required/>
                     <input onChange={e => setPasswordRep(e.target.value)} name="rep-password" type="password"
                            placeholder="Repeat password" required/>
-                    <button type="submit" onClick={(e) => sendUserInfo(e)}>Register</button>
+                    <button type="submit" >Register</button>
+                    <button type="reset" >Reset</button>
                     <p>Already have an account? <Link to={"/login"}>Login!</Link></p>
                 </form> :
                 <>
