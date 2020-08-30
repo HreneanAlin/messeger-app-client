@@ -45,7 +45,6 @@ const Register = () => {
 
             try {
                 const res = await axios.post(`${process.env.REACT_APP_SERVER_HOST}/register`, params)
-                //const res = await axios.post(`https://ha-messanger-app.herokuapp.com/register`, params)
                 console.log("The response is", res)
                 console.log(res)
                     setMessage(res.data)
@@ -66,7 +65,7 @@ const Register = () => {
         <div className="register-container">
             <h1>Register</h1>
             <p>{message}</p>
-            {!reqDone ?
+            {!reqDone  ?
                 <form className="form-container" action="#" method="post">
                     <input onChange={e => setFirstName(e.target.value)} name="fname" type="text"
                            placeholder="first name" required/>
@@ -85,7 +84,7 @@ const Register = () => {
                 </form> :
                 <>
                     <p>An email was send to {email}. Please click the confirmation link in the mail for validation</p>
-                {/*<Link to={"/login"}><span className='lgn-l' >Login</span></Link>*/}
+                <Link to={"/"}><span className='go-back' >Go Back</span></Link>
                 </>
             }
         </div>

@@ -9,8 +9,11 @@
     color: var(--clr-secundary)
 }
 
+
+
 .register-container > * {
     margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 .form-container{
@@ -51,3 +54,17 @@
     background: var(--clr-third);
     color: var(--clr-secundary) ;
 }
+
+.go-back{
+    background: var(--clr-third);
+    padding: 1rem;
+    border-radius: .5rem;
+    color: var(--clr-light);
+}
+
+.go-back:hover{
+    color:var(--clr-third);
+    background: var(--clr-light);
+}
+
+

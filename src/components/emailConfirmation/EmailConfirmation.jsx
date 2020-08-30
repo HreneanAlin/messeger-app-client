@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './EmailConfirmation.css'
 import axios from 'axios'
-import {useParams, Redirect} from "react-router-dom";
+import {useParams, Redirect, Link} from "react-router-dom";
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path: '.env'})
@@ -33,8 +33,9 @@ const EmailConfirmation = () => {
 
 
     if (found) return (
-        <div>
-            <p>Your email was confirmed</p>
+        <div className="confirmation-container">
+            <h1>Your email was confirmed!</h1>
+            <Link to={"/login"}><span className="login-l" >Sign In</span></Link>
 
         </div>
     );

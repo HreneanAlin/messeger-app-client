@@ -1,0 +1,17 @@
+.confirmation-container{
+    height: 100%;
+    background: var(--clr-dark);
+    color: var(--clr-secundary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.confirmation-container a{
+    text-decoration: none;
+}
+
+.confirmation-container .login-l:hover{
+    color: var(--clr-third);
+    background: var(--clr-secundary);
+}
