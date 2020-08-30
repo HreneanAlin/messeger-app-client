@@ -1,0 +1,26 @@
+.cookie-container-outer{
+    height: 100%;
+    margin: 0;
+    background: #1E2019;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.cookie-container {
+    align-items: center;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 8%;
+    border-radius: 20px;
+    background: #2F0147;
+}
+
+.h2-cookie {
+    color:#E1B07E;
+    font-size: 2em;
+}

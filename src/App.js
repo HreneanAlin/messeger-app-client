@@ -6,6 +6,7 @@ import "./variables.css"
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import EmailConfirmation from "./components/emailConfirmation/EmailConfirmation";
+import CookiePolicy from "./components/CookiePolicy/CooKiePolicy";
 
 
 const App = () => {
@@ -41,6 +42,9 @@ const App = () => {
             </Route>
             <Route path={'/email-confirmed/:verifiedId'}>
                 <EmailConfirmation/>
+            </Route>
+            <Route path={'/cookies'}>
+                <CookiePolicy/>
             </Route>
 
         </Router>
