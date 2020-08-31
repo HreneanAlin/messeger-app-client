@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+button{
+    cursor: pointer;
+}
+
 :root{
     --clr-main: #587B7F;
     --clr-dark : #1E2019;

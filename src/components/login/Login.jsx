@@ -73,7 +73,12 @@ const logOutFromPage = ()=>{
                     </div>
                     <div>
                         <button onClick={(e) => sendData(e)}>Log In</button>
+                        <Link to={"/"}>
+                            <button className="back-span">Go Back</button>
+                        </Link>
                         <p>Don't have an account? <Link to={"/register"}>Create one!</Link></p>
+                        <p>Forgot you password? Click <Link to={"/password-recovery"}>here!</Link></p>
+
                     </div>
                 </form> </div> : <>
                     <h1>Welcome {user.userName}</h1>

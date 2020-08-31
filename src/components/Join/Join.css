@@ -58,6 +58,10 @@ html, body {
     color: var(--clr-dark) !important;
 }
 
+.button-chat:hover{
+    background: var(--clr-light);
+}
+
 .register-l{
     background: var(--clr-secundary);
     color: var(--clr-third) ;

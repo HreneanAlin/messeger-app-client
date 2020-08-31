@@ -7,6 +7,8 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import EmailConfirmation from "./components/emailConfirmation/EmailConfirmation";
 import CookiePolicy from "./components/CookiePolicy/CooKiePolicy";
+import PasswordRecovery from "./components/password-recovery/PasswordRecovery";
+import PasswordReset from "./components/password-reset/PasswordReset";
 
 
 const App = () => {
@@ -46,6 +48,13 @@ const App = () => {
             <Route path={'/cookies'}>
                 <CookiePolicy/>
             </Route>
+            <Route path={'/password-recovery'}>
+                <PasswordRecovery/>
+            </Route>
+            <Route path={'/password-reset/:id'}>
+               <PasswordReset/>
+            </Route>
+
 
         </Router>
     );
