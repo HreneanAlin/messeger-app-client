@@ -33,12 +33,12 @@ const Chat = ({room, setRoom}) => {
     useEffect(() => {
         socket = io(ENDPOINT);
 
-        console.log('fromchat.......',user)
+        //console.log('fromchat.......',user)
 
 
         if (user) {
             const {room, gerid} = queryString.parse(window.location.search)
-            console.log('the roomn is',room)
+           // console.log('the roomn is',room)
             setName(`${user.firstName} ${user.lastName}`)
 
             setGeneratedId(gerid)
@@ -89,7 +89,7 @@ const Chat = ({room, setRoom}) => {
         }
     }
 
-    console.log(messages);
+
 
     return (
         <div className='outerContainer'>
