@@ -9,6 +9,7 @@ import EmailConfirmation from "./components/emailConfirmation/EmailConfirmation"
 import CookiePolicy from "./components/CookiePolicy/CooKiePolicy";
 import PasswordRecovery from "./components/password-recovery/PasswordRecovery";
 import PasswordReset from "./components/password-reset/PasswordReset";
+import PersonalPage from "./components/personalPage/PersonalPage";
 
 
 const App = () => {
@@ -39,7 +40,7 @@ const App = () => {
                       room = {room}
                       setRoom = {setRoom}/>
             </Route>
-            <Route path='/login' >
+            <Route path='/login'  >
                 <Login logOut ={logOut} />
             </Route>
             <Route path={'/email-confirmed/:verifiedId'}>
@@ -53,6 +54,9 @@ const App = () => {
             </Route>
             <Route path={'/password-reset/:id'}>
                <PasswordReset/>
+            </Route>
+            <Route path={'/personal-page'}>
+                <PersonalPage/>
             </Route>
 
 

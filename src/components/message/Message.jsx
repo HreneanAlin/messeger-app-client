@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import './Message.css'
 import ReactEmoji from 'react-emoji'
 import verifiedIcon from "../../icons/verified.png"
+import googlePng from "../../icons/google.png"
 import {v4 as uuidv4} from 'uuid';
 
 const Message = ({message: {user, text}, name, generatedId}) => {
@@ -26,7 +27,8 @@ const Message = ({message: {user, text}, name, generatedId}) => {
             const words = paragraph.split(' ')
             return words.map(word => {
                 if (regexWithHypertext.test(word)) {
-                    return <a className="message-link" key={uuidv4()} rel="noopener noreferrer" target="_blank" href={word}>{word}</a>
+                    return <a className="message-link" key={uuidv4()} rel="noopener noreferrer" target="_blank"
+                              href={word}>{word}</a>
                 }
                 if (regexWithouHypertext.test(word)) {
                     return <a className="message-link" key={uuidv4()} rel="noopener noreferrer" target="_blank"
@@ -47,13 +49,16 @@ const Message = ({message: {user, text}, name, generatedId}) => {
         isSendByCurrentUser
             ? (
                 <div className='messageContainer justifyEnd'>
-                    <p className="sentText pr-10">{user.verified ?
+                    <p className="sentText pr-10">{user.googleId ?
                         <>
 
-                            <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                            <img className="verified-img" src={googlePng} alt="verified icon"/>
                             {user.name}
                         </>
-                        : user.name}</p>
+                        : user.verified ? <>
+                            <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                            {user.name}
+                        </> : user.name}</p>
 
                     <div className="messageBox background-current-user">
                         <p ref={parafCurrentUEl}
@@ -68,13 +73,16 @@ const Message = ({message: {user, text}, name, generatedId}) => {
                     <div className="messageBox background-others">
                         <p ref={parafOtherUEl} className="messageText colorDark">{makeLinks(ReactEmoji.emojify(text))}</p>
                     </div>
-                    <p className="sentText pl-10">{user.verified ?
+                    <p className="sentText pl-10">{user.googleId ?
                         <>
                             {user.name}
-                            <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                            <img className="verified-img" src={googlePng} alt="verified icon"/>
 
                         </>
-                        : user.name}</p>
+                        : user.verified ? <>
+                            {user.name}
+                            <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                        </> : user.name}</p>
                 </div>
 
             )

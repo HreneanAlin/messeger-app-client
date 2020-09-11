@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from 'axios';
+import queryString from 'query-string'
 import "./Login.css"
+import JWTDecrypt from "../../JWT/JWTDecryptor"
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path: '.env'})
@@ -13,6 +15,18 @@ const Login = ({logOut}) => {
     const [password, setPassword] = useState("")
     const [notLoged, setNotLoged] = useState(!user)
     const [message,setMessage] = useState("")
+    useEffect(()=>{
+        if(user) return;
+        const {tkn} = queryString.parse(window.location.search)
+        if(!tkn) return;
+
+        const data = JWTDecrypt(tkn)
+        localStorage.setItem('getUser', JSON.stringify(data))
+        setUser(JSON.parse(localStorage.getItem('getUser')))
+        setNotLoged(!data.firstName)
+
+    },[])
+
     const sendData = (e) => {
         e.preventDefault()
         if (!userNameTry || !password) return
@@ -53,6 +67,11 @@ const Login = ({logOut}) => {
         send()
     }
 
+const googleAuth= (e)=>{
+
+
+}
+
 const logOutFromPage = ()=>{
         logOut()
         setNotLoged(true)
@@ -78,6 +97,8 @@ const logOutFromPage = ()=>{
                         </Link>
                         <p>Don't have an account? <Link to={"/register"}>Create one!</Link></p>
                         <p>Forgot you password? Click <Link to={"/password-recovery"}>here!</Link></p>
+                        <a download href={`${process.env.REACT_APP_SERVER_HOST}/google`}>Log in with Google</a>
+                        {/*<button onClick={e => googleAuth(e)} className="back-span">Log in Google</button>*/}
 
                     </div>
                 </form> </div> : <>
