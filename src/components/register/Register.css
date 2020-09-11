@@ -9,6 +9,9 @@
     color: var(--clr-secundary)
 }
 
+input, button, span {
+    max-height: 3rem;
+}
 
 
 .register-container > * {
