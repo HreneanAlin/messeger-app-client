@@ -3,12 +3,12 @@ import './Message.css'
 import ReactEmoji from 'react-emoji'
 import verifiedIcon from "../../icons/verified.png"
 import googlePng from "../../icons/google.png"
+import facebookPng from "../../icons/facebook.png"
 import {v4 as uuidv4} from 'uuid';
 
 const Message = ({message: {user, text}, name, generatedId}) => {
     let isSendByCurrentUser = false
 
-    // const trimmedName = name.trim().toLowerCase()
     const parafCurrentUEl = useRef()
     const parafOtherUEl = useRef()
 
@@ -18,8 +18,8 @@ const Message = ({message: {user, text}, name, generatedId}) => {
     }
 
     const makeLinks = (paragraphs) => {
-        const regexWithHypertext = /(https?:\/\/)\S{1,}/g
-        const regexWithouHypertext = /(www\.)\S{1,}/g
+        const regexWithHypertext = /(https?:\/\/)\S{1,}/gi
+        const regexWithouHypertext = /(www\.)\S{1,}/gi
         let changedParagraphs = paragraphs.map(paragraph => {
             if (typeof paragraph !== 'string') {
                 return paragraph
@@ -49,16 +49,19 @@ const Message = ({message: {user, text}, name, generatedId}) => {
         isSendByCurrentUser
             ? (
                 <div className='messageContainer justifyEnd'>
-                    <p className="sentText pr-10">{user.googleId ?
+                    <p className="sentText pr-10">{user.facebookId ?
                         <>
-
-                            <img className="verified-img" src={googlePng} alt="verified icon"/>
+                            <img className="verified-img" src={facebookPng} alt="verified icon"/>
                             {user.name}
-                        </>
-                        : user.verified ? <>
-                            <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
-                            {user.name}
-                        </> : user.name}</p>
+                        </> : user.googleId ?
+                            <>
+                                <img className="verified-img" src={googlePng} alt="verified icon"/>
+                                {user.name}
+                            </>
+                            : user.verified ? <>
+                                <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                                {user.name}
+                            </> : user.name}</p>
 
                     <div className="messageBox background-current-user">
                         <p ref={parafCurrentUEl}
@@ -73,16 +76,21 @@ const Message = ({message: {user, text}, name, generatedId}) => {
                     <div className="messageBox background-others">
                         <p ref={parafOtherUEl} className="messageText colorDark">{makeLinks(ReactEmoji.emojify(text))}</p>
                     </div>
-                    <p className="sentText pl-10">{user.googleId ?
+                    <p className="sentText pl-10">{user.facebookId ?
                         <>
                             {user.name}
-                            <img className="verified-img" src={googlePng} alt="verified icon"/>
+                            <img className="verified-img" src={facebookPng} alt="verified icon"/>
 
-                        </>
-                        : user.verified ? <>
-                            {user.name}
-                            <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
-                        </> : user.name}</p>
+                        </> : user.googleId ?
+                            <>
+                                {user.name}
+                                <img className="verified-img" src={googlePng} alt="verified icon"/>
+
+                            </>
+                            : user.verified ? <>
+                                {user.name}
+                                <img className="verified-img" src={verifiedIcon} alt="verified icon"/>
+                            </> : user.name}</p>
                 </div>
 
             )

@@ -25,6 +25,10 @@ input, button, span {
 
 }
 
+.register-container img {
+    max-height: 2rem;
+}
+
 .form-container > *,
 .lgn-l{
     margin-bottom: 0.5rem;
@@ -63,11 +67,51 @@ input, button, span {
     padding: 1rem;
     border-radius: .5rem;
     color: var(--clr-light);
+    text-align: center;
+}
+
+.facebook-login, .google-login{
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+
+}
+
+
+.facebook-login {
+    background: var(--clr-light);
+    color: var(--clr-third);
+
+}
+
+.google-login {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+
+}
+
+.google-login:hover{
+    background: var(--clr-secundary);
+}
+
+.facebook-login:hover{
+    color:var(--clr-light);
+    background: var(--clr-third);
+
+}
+.facebook-login img,
+.google-login img{
+   justify-self: left;
 }
 
 .go-back:hover{
     color:var(--clr-third);
     background: var(--clr-light);
 }
+
 
 

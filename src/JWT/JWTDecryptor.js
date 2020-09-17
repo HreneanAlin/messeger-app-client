@@ -18,6 +18,7 @@ const JWTDecrypt = (token) => {
             lastName:payload.lastName,
             userName:payload.userName,
             googleId:payload.googleId,
+            facebookId:payload.facebookId,
             token:token
         }
     })

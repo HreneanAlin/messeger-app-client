@@ -76,10 +76,7 @@
     color: var(--clr-light)
 }
 
-.message-link{
-    text-decoration: none;
-    color: var(--clr-main);
-}
+
 
 .message-link:hover{
     text-decoration: underline;

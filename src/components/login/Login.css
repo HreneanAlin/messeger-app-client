@@ -24,3 +24,22 @@
 .login-container p {
     margin-top:0.5rem;
 }
+.outside-login-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.outside-login-container a{
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    margin-bottom: 1rem;
+}
+
+.outside-login-container img{
+    max-height: 2rem;
+}

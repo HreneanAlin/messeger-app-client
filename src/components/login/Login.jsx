@@ -4,6 +4,8 @@ import axios from 'axios';
 import queryString from 'query-string'
 import "./Login.css"
 import JWTDecrypt from "../../JWT/JWTDecryptor"
+import facebookPng from"../../icons/facebook.png"
+import googlePng from "../../icons/google.png"
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path: '.env'})
@@ -97,8 +99,15 @@ const logOutFromPage = ()=>{
                         </Link>
                         <p>Don't have an account? <Link to={"/register"}>Create one!</Link></p>
                         <p>Forgot you password? Click <Link to={"/password-recovery"}>here!</Link></p>
-                        <a download href={`${process.env.REACT_APP_SERVER_HOST}/google`}>Log in with Google</a>
-                        {/*<button onClick={e => googleAuth(e)} className="back-span">Log in Google</button>*/}
+                        <div className="outside-login-container">
+                        <a className="google-login" href={`${process.env.REACT_APP_SERVER_HOST}/google`}>
+                            <img src={googlePng} alt="login with google"/>
+                            Log in with Google</a>
+                        <a className="facebook-login" href={`${process.env.REACT_APP_SERVER_HOST}/facebook`}>
+                            <img src={facebookPng} alt="login with facebook"/>
+                            Log in with Facebook</a>
+                        </div>
+
 
                     </div>
                 </form> </div> : <>

@@ -3,6 +3,8 @@ import "./Register.css"
 import axios from 'axios';
 import {Link, Redirect} from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
+import facebookPng from"../../icons/facebook.png"
+import googlePng from "../../icons/google.png"
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path: '.env'})
@@ -78,6 +80,12 @@ const Register = () => {
                            placeholder="Repeat password" required/>
                     <button type="submit" >Register</button>
                     <button type="reset" >Reset</button>
+                    <a className="google-login"  href={`${process.env.REACT_APP_SERVER_HOST}/google`}>
+                        <img src={googlePng} alt="login with google"/>
+                        Log in with Google</a>
+                    <a className="facebook-login" href={`${process.env.REACT_APP_SERVER_HOST}/facebook`}>
+                        <img src={facebookPng} alt="login with facebook"/>
+                        Log in with Facebook</a>
                     <p>Already have an account? <Link to={"/login"}>Login!</Link></p>
                 </form> :
                 <>
